@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Management System - Sign up page</title>
+    <!-- google font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- main css -->
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/entry-page.css" />
+  </head>
+  <body>
+    <div class="row height-full">
+      <!-- left side -->
+      <div
+        class="left-column flex flex-column height-full justify-center items-center">
+        <h1 class="welcoming-title">Hello</h1>
+        <form class="form" id="registrationForm" autocomplete="off">
+          
+          <label for="firstName" class="label">First Name:</label>
+          <input type="text" id="firstName" name="firstName" class="input" required>
+          
+          <label for="lastName" class="label">Last Name:</label>
+          <input type="text" id="lastName" name="lastName" class="input" required>
+          
+          <label for="email" class="label">Email:</label>
+          <input type="email" id="email" name="email" class="input" required>
+          <span id="user-found"></span>
+          
+          <label for="password" class="label">Set Password:</label>
+          <input type="password" id="password" name="password" class="input" required>
+
+          <button
+            type="submit"
+            class="button regular-button pink-background cta-btn" id="registrationBtn">
+            Sign up
+          </button>
+        </form>
+        <p class="login-prompt">
+          Already have an account?
+          <a href="./login.html" class="log-in-link">Log in</a>
+        </p>
+      </div>
+      <!-- right side -->
+      <div class="right-column"></div>
+    </div>
+    <script src="../js/Registration.js"></script>
+  </body>
+</html>

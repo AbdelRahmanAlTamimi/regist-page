@@ -1,0 +1,145 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fffaf0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #abe5bc
+}
+
+nav img {
+    width: 130px;
+}
+
+.divbottons {
+    display: flex;
+    gap: 12px;
+}
+
+button {
+    color: black;
+    background-color: #82cfff;
+    padding: 10px;
+    border-radius: 9px;
+    font-size: 17px;
+    box-shadow: 3px 3px 0px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #549be7;
+}
+
+
+header {
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 24px;
+    text-align: center;
+    padding: 2rem;
+}
+
+
+.mainBtn {
+    color: black;
+    background-color: #82cfff;
+    padding: 10px;
+    margin-top: 15px;
+    width: 250px;
+    height: 50px;
+    border-radius: 9px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.description {
+    color: black;
+}
+
+.features {
+    padding: 2rem;
+    text-align: center;
+}
+
+.feature-item {
+    display: inline-block;
+    width: 30%;
+    margin: 1rem;
+}
+
+.features p {
+    font-size: 17px;
+}
+
+.feature-item img {
+    width: 100px;
+    height: 100px;
+}
+
+.features img {
+    width: 250px;
+    height: 250px;
+}
+
+.card {
+    border: 1px solid #000000;
+    border-radius: 9px;
+    box-shadow: 6px 6px 0px #ff9c9c;
+    background-color: #ffffff;
+}
+
+footer {
+    background-color: #abe5bc;
+    text-align: center;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer img {
+    width: 130px;
+}
+
+
+@media (max-width: 768px) {
+
+    header {
+        width: 100%;
+    }
+
+    .welcome-section {
+        padding: 1rem;
+        width: 100%;
+        font-size: 20px;
+    }
+
+    .mainBtn {
+        width: 100%;
+    }
+
+    .feature-item {
+        width: 100%;
+        margin: 1rem 0;
+    }
+
+    .features {
+        padding: 1rem;
+    }
+
+  }
+  
+a {
+    text-decoration: none;
+    color: black;
+}

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Management System - Dashboard</title>
+    <!-- google font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- main css -->
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+  </head>
+  <body>
+    <!-- Because body has height 100%, we need a container to wrap the individual 
+    elements. The purpose is to add top & bottom padding -->
+    <div class="content-container disable-padding-top">
+      <!-- success notification -->
+      <!-- <div id="notification" class="notification green-background">
+        <iconify-icon icon="mdi:check-circle-outline"style="color: black" width="24" height="24"></iconify-icon>
+        <p>The task was deleted</p>
+      </div> -->
+      <!-- header --> 
+      <div class="max-width-container  green-background navbar">
+        <div class="header flex items-center justify-between">
+          <h1 class="title"><img src="../img/taskey.png" alt=""></h1>
+          <div><h1 id="greeting">Welcome Fname</h1></div>
+          <div class="buttons-container">
+            <button id="add-project-cta"class="button regular-button blue-background show-modal"aria-haspopup="true">
+              Add Project
+            </button>
+            <button class="sign-out-cta" id="signOut">Sign out</button>
+          </div>
+        </div>
+      </div>
+      <!-- radio buttons -->
+      <div class="radio-buttons-container disable-margin-top  ">
+        <div class="max-width-container flex" id="project-display">
+          <div class="radio-container">
+            <input
+              type="radio"
+              id="list"
+              name="view-option"
+              value="list"
+              class="radio-input"
+              checked
+            />
+            <label for="list" class="radio-label">
+              <span>Project 1 lore msad fdasds adfasdf asdf</span>
+            </label>
+          </div>
+          <div class="radio-container">
+            <input
+              type="radio"
+              id="board"
+              name="view-option"
+              value="board"
+              class="radio-input"
+            />
+            <label for="board" class="radio-label">
+              <!-- grid -->
+              <!-- <iconify-icon
+                icon="ic:round-grid-view"
+                style="color: black"
+                width="24"
+                height="24"
+              ></iconify-icon> -->
+              <span>Project 2</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="maxw-width-container">
+        
+        <!-- <button
+        type="button"
+        id="add-project-cta"
+        name="add-Project"
+        value="list"
+        class="radio-input"
+      >
+      
+        list-bulleted
+        <img src="../img/add.png" alt="" id="add-img">
+        </button> -->
+        <div class="max-width-container add-task-container">
+          <button id="add-task-cta"class="button regular-button blue-background show-modal"aria-haspopup="true">
+            Add task
+          </button>
+          <span id="project-desc">Title</span>
+          <div>
+            <label for="search-bar">Search:</label>
+            <input type="text" id="search-bar">
+          </div>
+        </div>
+      </div>
+      <!-- tasks -->
+      <div class="max-width-container">
+        <!-- list view -->
+        <div class="list-view project-container">
+        <div id="list-view" class="list-view">
+          <!-- To-do -->
+          <div class="list-container pink">
+            <h2 class="list-header">
+              <span class="circle pink-background"></span
+              ><span class="text">To do</span>
+            </h2>
+            <ul class="tasks-list" id="ulTo-do">
+            </ul>
+          </div>
+
+          <!-- Doing tasks -->
+          <div class="list-container blue">
+            <h2 class="list-header">
+              <span class="circle blue-background"></span
+              ><span class="text">Doing</span>
+            </h2>
+            <ul class="tasks-list" id="ulDoing">
+              
+            </ul>
+          </div>
+
+          <!-- Done -->
+          <div class="list-container green">
+            <h2 class="list-header">
+              <span class="circle green-background"></span
+              ><span class="text">Done</span>
+            </h2>
+            <ul class="tasks-list" id="ulDone">
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+              
+
+          </div>
+        </div>  
+    <!-- add + update task -->
+    <div id="set-task-overlay" class="overlay set-task-overlay hide">
+      <div class="overlay-content pink-background">
+        <!-- close button -->
+        <button
+          class="button circle-button blue-background flex justify-center items-center close-button">
+          <iconify-icon icon="material-symbols:close-rounded" style="color: black" width="26" height="26"></iconify-icon>
+        </button>
+
+        <!-- add task form -->
+        <h1 class="header">Add task</h1>
+        <form class="form" id="addTaskForm" autocomplete="off">
+          <label for="name" class="label">Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="input white-background"
+            required
+          />
+          <label for="description" class="label">Description</label>
+          <textarea name="description" id="description" rows="8" class="textarea-input white-background"></textarea>
+
+          <label for="Duedate" class="label">Duedate</label>
+          <input type="date" name="Duedate" id="Duedate" class="input white-background">
+            
+
+          <label class="label">Status</label>
+          <select name="drpli" id="drp-li" class="white-background">
+            <option value="to-do">to-do</option>
+            <option value="in-progress">in-progress</option>
+            <option value="done">done</option>
+          </select>
+
+          <div class="text-center">
+            <button type="submit" id="addTask" class="button regular-button green-background cta-button">
+              Add task
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- add project -->
+    <div id="set-project-overlay" class="overlay set-project-overlay hide">
+      <div class="overlay-content green-background">
+        <!-- close button -->
+        <button
+          class="button circle-button blue-background flex justify-center items-center close-button">
+          <iconify-icon icon="material-symbols:close-rounded" style="color: black" width="26" height="26"></iconify-icon>
+        </button>
+
+        <!-- add task form -->
+        <h1 class="header">Add Project</h1>
+        <form class="form" id="addTaskForm" autocomplete="off">
+          <label for="name" class="label">Name</label>
+          <input type="text" name="name" id="name" class="input white-background" required/>
+          <label for="description" class="label">Description</label>
+          <textarea name="description" id="description" rows="8" class="textarea-input white-background"></textarea>
+          <div class="text-center">
+            <button type="submit" id="addTask" class="button regular-button pink-background cta-button">
+              Start New Project
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- add project -->
+    <div id="set-project-overlay" class="overlay set-project-overlay hide">
+      <div class="overlay-content green-background">
+        <!-- close button -->
+        <button
+          class="button circle-button blue-background flex justify-center items-center close-button"
+        >
+          <iconify-icon
+            icon="material-symbols:close-rounded"
+            style="color: black"
+            width="26"
+            height="26"
+          ></iconify-icon>
+        </button>
+        <h1 class="header">Add Project</h1>
+        <form class="form" autocomplete="off">
+          <label for="name" class="label">title</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="input white-background"
+            required
+          />
+          <label for="description" class="label">Description</label>
+          <textarea
+            name="description"
+            id="description"
+            rows="8"
+            class="textarea-input white-background"
+            required
+          ></textarea>
+          <!-- <h2 class="label">Due date</h2> -->
+          <div class="text-center">
+            <button
+              type="submit"
+              class="button regular-button green-background cta-button"
+            >
+              Add Project
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- view task -->
+    <div id="view-task-overlay" class="overlay view-task-overlay hide">
+      <div class="overlay-content green-background">
+        <!-- close button -->
+        <button
+          class="button circle-button blue-background flex justify-center items-center close-button"
+        >
+          <iconify-icon
+            icon="material-symbols:close-rounded"
+            style="color: black"
+            width="26"
+            height="26"
+          ></iconify-icon>
+        </button>
+        <!-- Close Button -->
+
+        <p id="curTaskId" class="hidden"></p>
+        <h1 class="header no-margin">Name</h1>
+        <p class="value task-info" id="curTaskTitle"></p>
+        <h1 class="header">Description</h1>
+        <p class="value task-info" id="curTaskDesc"></p>
+        <div class="flex items-center">
+          <h1 class="header">Due date</h1> <br>
+          <p class="value" id="curTaskDueDate"></p>
+        </div>
+        <div class="flex items-center">
+          <h1 class="header min-width">Status</h1>
+          <p class="value status-value" id="curTaskStatus">
+            <span class="circle blue-background"></span><span></span>
+          </p>
+        
+        </div>
+        <div id="horros">
+          <ul
+          id="status-dropdown-for-taskview"
+          class="status-dropdown white-background hide"
+        >
+          <li>
+            <input
+              type="radio"
+              id="to-do-radio"
+              name="status-option"
+              value="To do"
+              class="radio-input"
+            />
+            <label for="to-do-radio" class="radio-label">
+              <span class="circle pink-background"></span><span>To do</span>
+            </label>
+          </li>
+          <li>
+            <input
+              type="radio"
+              id="doing-radio"
+              name="status-option"
+              value="Doing"
+              class="radio-input"
+            />
+            <label for="doing-radio" class="radio-label">
+              <span class="circle blue-background"></span><span>Doing</span>
+            </label>
+          </li>
+          <li>
+            <input
+              type="radio"
+              id="done-radio"
+              name="status-option"
+              value="Done"
+              class="radio-input"
+            />
+            <label for="done-radio" class="radio-label">
+              <span class="circle green-background"></span><span>Done</span>
+            </label>
+          </li>
+        </ul>
+        </div>
+        <div class="control-buttons-container">
+          <!-- edit button -->
+          <button
+            class="button circle-button pink-background flex justify-center items-center" id="edit-task-btn"
+          >
+            <iconify-icon
+              icon="material-symbols:edit-rounded"
+              style="color: black"
+              width="24"
+              height="24"
+            ></iconify-icon>
+          </button>
+          <!-- delete button -->
+          <button
+            id="delete-task-cta"
+            class="button circle-button pink-background flex justify-center items-center"
+          >
+            <iconify-icon
+              icon="ic:round-delete"
+              style="color: black"
+              width="24"
+              height="24"
+            ></iconify-icon>
+          </button>
+          <!-- History -->
+          <button
+          id="task-history-cta"
+          class="button circle-button pink-background flex justify-center items-center">
+        <img src="../img/historyy.png" alt="">
+        </button>
+        <button
+          id="task-edit-done"
+          class="button circle-button blue-background flex justify-center items-center hidden">
+        <img src="../img/check.png" alt="">
+        </button>
+        </div>
+      </div>
+    </div>
+
+<!--  -->
+    <div id="project-quickview">
+      <div class="flex quickview-line"><div class="circle pink-background"></div>: X</div>
+      <div class="flex quickview-line"><div class="circle blue-background"></div>: Y</div>
+      <div class="flex quickview-line"><div class="circle green-background"></div>: Z</div>
+    </div>
+
+    
+    <!-- import IconifyIcon web component -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.5/iconify-icon.min.js"></script>
+    <!-- js -->
+    <script src="../js/main.js"></script>
+    <script src="../js/dashBoard.js"></script>
+  </body>
+</html>
